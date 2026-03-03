@@ -126,9 +126,7 @@ impl<'de> Deserialize<'de> for EditPredictionProvider {
             Content::Experimental(name)
                 if name == EXPERIMENTAL_ZETA2_EDIT_PREDICTION_PROVIDER_NAME =>
             {
-                EditPredictionProvider::Experimental(
-                    EXPERIMENTAL_ZETA2_EDIT_PREDICTION_PROVIDER_NAME,
-                )
+                EditPredictionProvider::Zed
             }
             Content::Experimental(name) => {
                 return Err(D::Error::custom(format!(
@@ -245,6 +243,7 @@ pub enum EditPredictionPromptFormat {
     #[default]
     Infer,
     Zeta,
+    Zeta2,
     CodeLlama,
     StarCoder,
     DeepseekCoder,
